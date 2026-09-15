@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your Pronote account. Start your 7-day free trial — no credit card required.">
+  <title>Create Account — Pronote AI</title>
+  <link rel="stylesheet" href="signup.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300d4aa'/><text x='16' y='22' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='white'>P</text></svg>">
+</head>
+<body class="grid-bg">
+
+  <!-- ── Navbar ────────────────────────────────────────────── -->
+  <nav class="signup-navbar">
+    <a href="index.html" class="signup-navbar-brand">
+      <span class="brand-icon">✦</span>
+      Pronote
+    </a>
+    <a href="index.html" class="signup-back">← Back to Home</a>
+  </nav>
+
+
+  <!-- ── Page ──────────────────────────────────────────────── -->
+  <main class="signup-page">
+    <div class="signup-container">
+
+      <!-- ═══════════════════════════════════════════════════
+           LEFT – FORM
+           ═══════════════════════════════════════════════════ -->
+      <div class="signup-left">
+        <h1>Create account</h1>
+        <p class="signup-subtitle">Start your 7-day free trial. No credit card required.</p>
+
+        <div class="signup-form-card" id="formCard">
+          <!-- Google Sign-In -->
+          <button class="google-btn" type="button" id="googleBtn">
+            <span class="g-icon">G</span>
+            Sign up with Google
+          </button>
+
+          <!-- Divider -->
+          <div class="signup-divider">or sign up with email</div>
+
+          <!-- Form -->
+          <form id="signupForm" novalidate>
+            <!-- Full Name -->
+            <div class="form-group">
+              <label class="form-label" for="fullName">Full Name</label>
+              <input class="form-input" type="text" id="fullName" name="fullName"
+                     placeholder="Dr. John Doe" required autocomplete="name">
+              <div class="form-error" id="fullNameError">Please enter your full name.</div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email"
+                     placeholder="you@clinic.com" required autocomplete="email">
+              <div class="form-error" id="emailError">Please enter a valid email address.</div>
+            </div>
+
+            <!-- Specialty -->
+            <div class="form-group">
+              <label class="form-label" for="specialty">Specialty</label>
+              <select class="form-select" id="specialty" name="specialty" required>
+                <option value="" disabled selected>Select your specialty</option>
+                <option value="general-medicine">General Medicine</option>
+                <option value="family-medicine">Family Medicine</option>
+                <option value="internal-medicine">Internal Medicine</option>
+                <option value="pediatrics">Pediatrics</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="dermatology">Dermatology</option>
+                <option value="orthopedics">Orthopedics</option>
+                <option value="psychiatry">Psychiatry</option>
+                <option value="emergency-medicine">Emergency Medicine</option>
+                <option value="ob-gyn">OB/GYN</option>
+                <option value="neurology">Neurology</option>
+                <option value="other">Other</option>
+              </select>
+              <div class="form-error" id="specialtyError">Please select your specialty.</div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label class="form-label" for="password">Password</label>
+              <div class="password-wrapper">
+                <input class="form-input" type="password" id="password" name="password"
+                       placeholder="Min 8 characters" required minlength="8" autocomplete="new-password">
+                <button type="button" class="password-toggle" data-target="password" aria-label="Toggle password visibility">👁</button>
+              </div>
+              <div class="form-error" id="passwordError">Password must be at least 8 characters.</div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+              <label class="form-label" for="confirmPassword">Confirm Password</label>
+              <div class="password-wrapper">
+                <input class="form-input" type="password" id="confirmPassword" name="confirmPassword"
+                       placeholder="Re-enter password" required autocomplete="new-password">
+                <button type="button" class="password-toggle" data-target="confirmPassword" aria-label="Toggle password visibility">👁</button>
+              </div>
+              <div class="form-error" id="confirmPasswordError">Passwords do not match.</div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="signup-submit" id="submitBtn">
+              Create Account <span>→</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Success state (hidden by default) -->
+        <div class="signup-success" id="signupSuccess">
+          <div class="success-icon">✓</div>
+          <h3>Account created!</h3>
+          <p>Welcome to Pronote. Your 7-day free trial has started.</p>
+          <a href="index.html" class="btn">Go to Dashboard →</a>
+        </div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════════════════
+           RIGHT – INFO
+           ═══════════════════════════════════════════════════ -->
+      <div class="signup-right">
+        <h2>Start your<br><span class="highlight">free trial</span></h2>
+        <p class="signup-right-desc">
+          Join 50,000+ clinicians transforming their documentation workflow with AI.
+        </p>
+
+        <!-- What's Included -->
+        <div class="included-card">
+          <div class="included-card-header">
+            <span class="ic-icon">⚡</span> What's Included
+          </div>
+          <div class="included-list">
+            <div class="included-item">
+              <span class="included-check">✓</span>
+              7-day free trial — no credit card
+            </div>
+            <div class="included-item">
+              <span class="included-check">✓</span>
+              All specialty templates included
+            </div>
+            <div class="included-item">
+              <span class="included-check">✓</span>
+              HIPAA-compliant &amp; fully encrypted
+            </div>
+            <div class="included-item">
+              <span class="included-check">✓</span>
+              AI notes in under 60 seconds
+            </div>
+            <div class="included-item">
+              <span class="included-check">✓</span>
+              Cancel anytime, hassle-free
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">
+            "Pronote has completely transformed my practice. I save over 2 hours every day and can finally focus on my patients."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DR</div>
+            <div>
+              <div class="testimonial-name">Dr. Rachel Simmons</div>
+              <div class="testimonial-role">Family Medicine, Houston TX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="signup.js"></script>
+</body>
+</html>

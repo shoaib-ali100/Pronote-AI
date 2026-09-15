@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pronote AI — Your clinical notes, auto generated. Save 2+ hours per day on documentation with AI-powered medical transcription.">
+  <title>Pronote — AI Clinical Documentation</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon (inline SVG data URI) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300d4aa'/><text x='16' y='22' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='white'>P</text></svg>">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVBAR
+       ═══════════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <!-- Brand -->
+      <a href="#" class="navbar-brand">
+        <span class="brand-icon">✦</span>
+        Pronote
+      </a>
+
+      <!-- Links (desktop) -->
+      <div class="navbar-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#security">Security</a>
+        <a href="#about">About</a>
+      </div>
+
+      <!-- Actions -->
+      <div class="navbar-actions">
+        <a href="signup.html" class="navbar-signin">Sign In</a>
+        <a href="signup.html" class="navbar-cta">
+          Start Free Trial <span>→</span>
+        </a>
+        <!-- Hamburger -->
+        <button class="navbar-hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#features" class="mobile-nav-link">Features</a>
+      <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
+      <a href="#pricing" class="mobile-nav-link">Pricing</a>
+      <a href="#security" class="mobile-nav-link">Security</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="signup.html" class="mobile-nav-link">Sign In</a>
+      <a href="signup.html" class="mobile-cta">Start Free Trial →</a>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════ -->
+  <section class="hero grid-bg" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left column -->
+        <div class="hero-left">
+          <div class="pill-badge hero-pill">
+            <span class="pill-icon">✦</span> Trusted by 50,000+ clinicians
+          </div>
+
+          <h1>
+            Your clinical notes.<br>
+            <span class="highlight">Auto</span> generated.
+          </h1>
+
+          <p class="hero-description">
+            Save 2+ hours per day on documentation. Our AI listens to your patient
+            conversations and generates accurate clinical notes instantly.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="signup.html" class="btn btn-primary btn-lg" id="heroTrialBtn">
+              Start Free Trial <span class="btn-icon">→</span>
+            </a>
+            <button class="btn btn-secondary btn-lg" id="watchDemoBtn">
+              <span>▶</span> Watch Demo
+            </button>
+          </div>
+
+          <div class="hero-social-proof">
+            <div class="avatar-stack">
+              <div class="avatar" style="background:#10b981;">E</div>
+              <div class="avatar" style="background:#3b82f6;">S</div>
+              <div class="avatar" style="background:#f59e0b;">J</div>
+              <div class="avatar" style="background:#8b5cf6;">M</div>
+              <div class="avatar" style="background:#ef4444;">R</div>
+            </div>
+            <div class="social-proof-text">
+              <div class="social-proof-stars">★★★★★</div>
+              <div class="social-proof-label">from 2,000+ reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column – Dashboard Preview -->
+        <div class="hero-right">
+          <div class="dashboard-preview">
+            <div class="dashboard-titlebar">
+              <span class="dashboard-dot red"></span>
+              <span class="dashboard-dot yellow"></span>
+              <span class="dashboard-dot green"></span>
+            </div>
+            <div class="dashboard-content">
+              <div class="dashboard-stats">
+                <div class="dashboard-stat">
+                  <div class="dashboard-stat-icon" style="background:rgba(16,185,129,0.12);color:#10b981;">■</div>
+                  <div class="dashboard-stat-number">24</div>
+                  <div class="dashboard-stat-label">Notes Today</div>
+                </div>
+                <div class="dashboard-stat">
+                  <div class="dashboard-stat-icon" style="background:rgba(59,130,246,0.12);color:#3b82f6;">■</div>
+                  <div class="dashboard-stat-number">98%</div>
+                  <div class="dashboard-stat-label">Accuracy</div>
+                </div>
+                <div class="dashboard-stat">
+                  <div class="dashboard-stat-icon" style="background:rgba(139,92,246,0.12);color:#8b5cf6;">■</div>
+                  <div class="dashboard-stat-number">2.1h</div>
+                  <div class="dashboard-stat-label">Time Saved</div>
+                </div>
+              </div>
+              <div class="dashboard-lines">
+                <div class="dashboard-line"></div>
+                <div class="dashboard-line"></div>
+                <div class="dashboard-line"></div>
+                <div class="dashboard-line"></div>
+                <div class="dashboard-line"></div>
+              </div>
+            </div>
+
+            <!-- Floating cards -->
+            <div class="floating-card floating-hipaa">
+              <div class="fc-icon">🛡</div>
+              <div>
+                <div style="font-weight:700;">HIPAA Compliant</div>
+                <div style="font-size:0.72rem;color:#888;">100% secure</div>
+              </div>
+            </div>
+
+            <div class="floating-card floating-hours">
+              <div class="fc-icon">⏱</div>
+              <div>
+                <div class="fc-text-big">2+ hours saved</div>
+                <div class="fc-text-small">per day on average</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       STATISTICS
+       ═══════════════════════════════════════════════════════ -->
+  <section class="statistics grid-bg" id="statistics">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-number color-teal" data-target="50000" data-suffix="+">0</div>
+          <div class="stat-label">Active Clinicians</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-number color-white" data-target="2" data-suffix="M+">0</div>
+          <div class="stat-label">Notes Generated</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-number color-blue" data-target="10000" data-suffix="+">0</div>
+          <div class="stat-label">Hours Saved Daily</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-number color-gold" data-target="98.5" data-suffix="%" data-decimal="true">0</div>
+          <div class="stat-label">Accuracy Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FEATURES
+       ═══════════════════════════════════════════════════════ -->
+  <section class="features grid-bg section" id="features">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="pill-badge">
+          <span class="pill-icon">✦</span> Features
+        </div>
+        <h2>Built for clinicians, <span class="highlight">by clinicians.</span></h2>
+        <p>Every feature designed to save you time and improve documentation quality.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Card 1 -->
+        <div class="feature-card reveal">
+          <div class="feature-icon icon-teal">⏱</div>
+          <h3>Save 2+ hours/day</h3>
+          <p>Streamline your notes and reclaim time for what truly matters — your patients and your life.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon icon-blue">🛡</div>
+          <h3>HIPAA compliant &amp; secure</h3>
+          <p>Your patients' data is encrypted and secure with industry-leading security protocols.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon icon-cyan">⚡</div>
+          <h3>Instant accuracy</h3>
+          <p>AI-powered medical speech recognition delivers accurate clinical documentation instantly.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon icon-orange">🧠</div>
+          <h3>AI-powered summaries</h3>
+          <p>GPT-4 generates structured SOAP notes, HPI, assessment and plan automatically.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon icon-green">🎙</div>
+          <h3>Real-time transcription</h3>
+          <p>See your conversation transcribed live as you speak with your patient.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon icon-purple">🔐</div>
+          <h3>Role-based access</h3>
+          <p>Secure multi-user support with admin controls and audit logging built in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       HOW IT WORKS
+       ═══════════════════════════════════════════════════════ -->
+  <section class="how-it-works grid-bg section" id="how-it-works">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="pill-badge">
+          <span class="pill-icon">✦</span> How It Works
+        </div>
+        <h2>Super <span class="highlight">simple.</span></h2>
+        <p>From patient conversation to polished clinical note in under 60 seconds. No typing required.</p>
+      </div>
+
+      <div class="hiw-grid">
+        <!-- Left – Workflow Visualization -->
+        <div class="hiw-visual reveal">
+          <!-- Step 1 -->
+          <div class="hiw-visual-step">
+            <div class="hiw-step-header">
+              <span class="hiw-step-num">01</span>
+              <span class="hiw-step-title">Start visit</span>
+            </div>
+            <div class="hiw-step-content">
+              <button class="hiw-capture-btn">🎙 Capture conversation</button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="hiw-visual-step">
+            <div class="hiw-step-header">
+              <span class="hiw-step-num">02</span>
+              <span class="hiw-step-title">Capturing</span>
+            </div>
+            <div class="hiw-step-content">
+              <div class="hiw-waveform" id="hiwWaveform">
+                <!-- Bars generated by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="hiw-visual-step">
+            <div class="hiw-step-header">
+              <span class="hiw-step-num">03</span>
+              <span class="hiw-step-title">Clinical note</span>
+            </div>
+            <div class="hiw-step-content">
+              <div class="hiw-note-card">
+                <div class="hiw-note-title">📋 Personalized Note</div>
+                <div class="hiw-note-lines">
+                  <div class="hiw-note-line"></div>
+                  <div class="hiw-note-line"></div>
+                  <div class="hiw-note-line"></div>
+                </div>
+                <button class="hiw-copy-btn">📋 Copy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right – Steps Explanation -->
+        <div class="hiw-steps">
+          <div class="hiw-explain reveal">
+            <div class="hiw-explain-num">01</div>
+            <div class="hiw-explain-content">
+              <h3>Capture</h3>
+              <p>Start a visit and let Pronote listen to your patient conversation in real time. Our AI captures every detail with medical-grade accuracy, so you can focus entirely on your patient.</p>
+            </div>
+          </div>
+
+          <div class="hiw-explain reveal reveal-delay-1">
+            <div class="hiw-explain-num">02</div>
+            <div class="hiw-explain-content">
+              <h3>Review &amp; Edit</h3>
+              <p>Once the visit ends, Pronote instantly generates a structured clinical note. Review the AI-generated SOAP note, make any adjustments, and approve in seconds.</p>
+            </div>
+          </div>
+
+          <div class="hiw-explain reveal reveal-delay-2">
+            <div class="hiw-explain-num">03</div>
+            <div class="hiw-explain-content">
+              <h3>Send</h3>
+              <p>Export the finalized note directly to your EHR with one click. Pronote integrates seamlessly with major EHR systems including Epic, Cerner, and Athenahealth.</p>
+            </div>
+          </div>
+
+          <div class="hiw-cta reveal reveal-delay-3">
+            <a href="signup.html" class="btn btn-primary btn-lg">
+              Get Started Free <span class="btn-icon">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       PRICING
+       ═══════════════════════════════════════════════════════ -->
+  <section class="pricing grid-bg section" id="pricing">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="pill-badge">
+          <span class="pill-icon">✦</span> Pricing
+        </div>
+        <h2>Simple, <span class="highlight">transparent pricing.</span></h2>
+        <p>No hidden fees. Start with a free trial and upgrade when you're ready.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Starter -->
+        <div class="pricing-card reveal">
+          <div class="pricing-plan-name">Starter</div>
+          <div class="pricing-price">Free <span></span></div>
+          <div class="pricing-desc">Perfect for trying Pronote. Get started with core features at no cost.</div>
+          <div class="pricing-features">
+            <div class="pricing-feature"><span class="check">✓</span> 15 notes per month</div>
+            <div class="pricing-feature"><span class="check">✓</span> HIPAA-compliant</div>
+            <div class="pricing-feature"><span class="check">✓</span> Basic templates</div>
+            <div class="pricing-feature"><span class="check">✓</span> Email support</div>
+          </div>
+          <a href="signup.html" class="btn btn-secondary">Get Started</a>
+        </div>
+
+        <!-- Professional (featured) -->
+        <div class="pricing-card featured reveal reveal-delay-1">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-plan-name">Professional</div>
+          <div class="pricing-price">$99 <span>/ month</span></div>
+          <div class="pricing-desc">Everything a clinician needs for fast, accurate documentation.</div>
+          <div class="pricing-features">
+            <div class="pricing-feature"><span class="check">✓</span> Unlimited notes</div>
+            <div class="pricing-feature"><span class="check">✓</span> All specialty templates</div>
+            <div class="pricing-feature"><span class="check">✓</span> EHR integration</div>
+            <div class="pricing-feature"><span class="check">✓</span> Priority support</div>
+            <div class="pricing-feature"><span class="check">✓</span> Custom templates</div>
+          </div>
+          <a href="signup.html" class="btn btn-primary">Start Free Trial <span class="btn-icon">→</span></a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card reveal reveal-delay-2">
+          <div class="pricing-plan-name">Enterprise</div>
+          <div class="pricing-price">Custom <span></span></div>
+          <div class="pricing-desc">For clinics and hospitals that need scale, security, and dedicated support.</div>
+          <div class="pricing-features">
+            <div class="pricing-feature"><span class="check">✓</span> Everything in Pro</div>
+            <div class="pricing-feature"><span class="check">✓</span> Multi-user accounts</div>
+            <div class="pricing-feature"><span class="check">✓</span> Admin dashboard</div>
+            <div class="pricing-feature"><span class="check">✓</span> Audit logging</div>
+            <div class="pricing-feature"><span class="check">✓</span> Dedicated account manager</div>
+          </div>
+          <a href="#" class="btn btn-secondary">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECURITY
+       ═══════════════════════════════════════════════════════ -->
+  <section class="security grid-bg section" id="security">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="pill-badge">
+          <span class="pill-icon">🛡</span> Security
+        </div>
+        <h2>Enterprise-grade <span class="highlight">security.</span></h2>
+        <p>Your patients' data is protected with the highest levels of encryption and compliance.</p>
+      </div>
+
+      <div class="security-grid">
+        <div class="security-card reveal">
+          <div class="security-icon">🔒</div>
+          <h3>HIPAA Compliant</h3>
+          <p>Fully compliant with Health Insurance Portability and Accountability Act regulations. Regular audits ensure ongoing compliance.</p>
+        </div>
+
+        <div class="security-card reveal reveal-delay-1">
+          <div class="security-icon">🔐</div>
+          <h3>End-to-End Encryption</h3>
+          <p>All data is encrypted in transit with TLS 1.3 and at rest with AES-256. Your recordings and notes are never accessible to unauthorized parties.</p>
+        </div>
+
+        <div class="security-card reveal reveal-delay-2">
+          <div class="security-icon">🏥</div>
+          <h3>SOC 2 Type II</h3>
+          <p>Our infrastructure meets SOC 2 Type II standards for security, availability, and confidentiality. Verified by independent auditors annually.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       ABOUT
+       ═══════════════════════════════════════════════════════ -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Left -->
+        <div class="about-left reveal">
+          <div class="pill-badge" style="margin-bottom:20px;">
+            <span class="pill-icon">✦</span> About Pronote
+          </div>
+          <h2>Built by doctors<br>who <span class="highlight">understand.</span></h2>
+          <p>We founded Pronote because we lived the problem. As practicing physicians, we spent hours every night catching up on documentation instead of being with our families.</p>
+          <p>Our mission is simple: give every clinician the power of AI-assisted documentation so they can focus on what matters most — their patients.</p>
+
+          <div class="about-values">
+            <div class="about-value">
+              <div class="about-value-icon">🎯</div>
+              <h4>Accuracy First</h4>
+              <p>Medical-grade precision in every note.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">💡</div>
+              <h4>Clinician-Led</h4>
+              <p>Designed with practicing physicians.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">🔒</div>
+              <h4>Privacy by Design</h4>
+              <p>Security is built into our DNA.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">🚀</div>
+              <h4>Always Improving</h4>
+              <p>Continuous AI model updates.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="about-right reveal reveal-delay-1">
+          <div class="about-stat-card">
+            <div class="about-stat-icon" style="background:rgba(0,212,170,0.12);color:var(--accent-teal);">🏥</div>
+            <div>
+              <div class="about-stat-number">50,000+</div>
+              <div class="about-stat-label">Active Clinicians</div>
+            </div>
+          </div>
+
+          <div class="about-stat-card">
+            <div class="about-stat-icon" style="background:rgba(59,130,246,0.12);color:var(--accent-blue);">📝</div>
+            <div>
+              <div class="about-stat-number">2M+</div>
+              <div class="about-stat-label">Clinical Notes Generated</div>
+            </div>
+          </div>
+
+          <div class="about-stat-card">
+            <div class="about-stat-icon" style="background:rgba(251,191,36,0.12);color:var(--accent-gold);">⏱</div>
+            <div>
+              <div class="about-stat-number">10,000+</div>
+              <div class="about-stat-label">Hours Saved Daily</div>
+            </div>
+          </div>
+
+          <div class="about-stat-card">
+            <div class="about-stat-icon" style="background:rgba(139,92,246,0.12);color:var(--accent-purple);">🏆</div>
+            <div>
+              <div class="about-stat-number">98.5%</div>
+              <div class="about-stat-label">Accuracy Rate</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="navbar-brand" style="font-size:1.15rem;">
+            <span class="brand-icon" style="width:32px;height:32px;font-size:0.9rem;">✦</span>
+            Pronote
+          </a>
+          <p class="footer-brand-desc">AI-powered clinical documentation that saves clinicians 2+ hours every day. Focus on patients, not paperwork.</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">HIPAA Notice</a></li>
+            <li><a href="#">BAA Request</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Pronote AI. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       DEMO MODAL
+       ═══════════════════════════════════════════════════════ -->
+  <div class="demo-overlay" id="demoOverlay">
+    <div class="demo-modal">
+      <button class="demo-close" id="demoClose" aria-label="Close demo">✕</button>
+
+      <div class="demo-header">
+        <div class="demo-header-icon">✦</div>
+        <h3>Pronote Demo</h3>
+      </div>
+      <p class="demo-subtitle">See how a clinical note is generated in under 60 seconds.</p>
+
+      <!-- Progress bar -->
+      <div class="demo-progress">
+        <div class="demo-progress-fill" id="demoProgressFill"></div>
+        <div class="demo-step active" data-step="0">
+          <div class="demo-step-dot"></div>
+          <div class="demo-step-label">Start Visit</div>
+        </div>
+        <div class="demo-step" data-step="1">
+          <div class="demo-step-dot"></div>
+          <div class="demo-step-label">Recording</div>
+        </div>
+        <div class="demo-step" data-step="2">
+          <div class="demo-step-dot"></div>
+          <div class="demo-step-label">Processing</div>
+        </div>
+        <div class="demo-step" data-step="3">
+          <div class="demo-step-dot"></div>
+          <div class="demo-step-label">Note Ready</div>
+        </div>
+      </div>
+
+      <!-- Content stages -->
+      <div class="demo-content">
+        <!-- Stage 0: Start Visit -->
+        <div class="demo-stage active" id="demoStage0">
+          <div class="demo-stage-icon icon-start">🎙</div>
+          <h4>Starting visit...</h4>
+          <p>Initializing secure audio capture.</p>
+        </div>
+
+        <!-- Stage 1: Recording -->
+        <div class="demo-stage" id="demoStage1">
+          <div class="demo-stage-icon icon-record">●</div>
+          <h4>Recording</h4>
+          <p>Listening to patient conversation...</p>
+          <div class="demo-waveform" id="demoWaveform"></div>
+        </div>
+
+        <!-- Stage 2: Processing -->
+        <div class="demo-stage" id="demoStage2">
+          <div class="demo-stage-icon icon-process">⟳</div>
+          <h4>Processing</h4>
+          <p>AI is generating your clinical note...</p>
+          <div class="demo-spinner"></div>
+        </div>
+
+        <!-- Stage 3: Note Ready -->
+        <div class="demo-stage" id="demoStage3">
+          <div class="demo-stage-icon icon-done">✓</div>
+          <h4>That's it!</h4>
+          <p>From conversation to clinical note in under 60 seconds. No typing required.</p>
+          <div class="demo-final-buttons">
+            <button class="btn btn-secondary" id="demoReplay">⟲ Replay</button>
+            <a href="signup.html" class="btn btn-primary">Start Free Trial <span class="btn-icon">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
