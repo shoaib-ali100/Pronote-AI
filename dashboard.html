@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Portal &amp; AI Documentation — Pronote AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300d4aa'/><text x='16' y='22' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='white'>P</text></svg>">
+</head>
+<body class="grid-bg">
+
+  <!-- ── Dashboard Header ───────────────────────────────────── -->
+  <header class="dash-navbar">
+    <div class="dash-nav-inner">
+      <a href="index.html" class="navbar-brand">
+        <span class="brand-icon">✦</span> Pronote AI
+      </a>
+
+      <div class="dash-nav-status">
+        <span class="status-dot"></span>
+        <span id="dbStatusText">MySQL: Connected</span>
+      </div>
+
+      <div class="dash-user-area">
+        <div class="dash-user-badge">
+          <div class="user-avatar" id="userAvatar">DR</div>
+          <div class="user-info">
+            <span class="user-name" id="userName">Dr. Clinician</span>
+            <span class="user-role" id="userSpecialty">General Medicine</span>
+          </div>
+        </div>
+        <button class="btn btn-sm btn-logout" id="logoutBtn">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Main Dashboard Layout ─────────────────────────────── -->
+  <main class="dash-container">
+    <div class="dash-grid">
+
+      <!-- LEFT: Consultation Input -->
+      <section class="dash-card input-card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Patient Consultation</h2>
+            <p class="card-subtitle">Paste consultation notes, dictation, or conversation audio transcript.</p>
+          </div>
+          <button class="btn-sample" id="loadSampleBtn">⚡ Load Sample Case</button>
+        </div>
+
+        <form id="noteForm" class="consultation-form">
+          <div class="form-row-2">
+            <div class="input-group">
+              <label for="patientName">Patient Name</label>
+              <input type="text" id="patientName" placeholder="e.g. Sarah Jenkins" required>
+            </div>
+            <div class="input-group">
+              <label for="visitType">Visit Type</label>
+              <select id="visitType">
+                <option value="Initial Consultation">Initial Consultation</option>
+                <option value="Follow-up Visit">Follow-up Visit</option>
+                <option value="Routine Checkup">Routine Annual Checkup</option>
+                <option value="Urgent Care">Urgent Care Evaluation</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="specialtySelect">Specialty Template</label>
+            <select id="specialtySelect">
+              <option value="General Medicine">General Medicine</option>
+              <option value="Family Medicine">Family Medicine</option>
+              <option value="Internal Medicine">Internal Medicine</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Dermatology">Dermatology</option>
+              <option value="Orthopedics">Orthopedics</option>
+              <option value="Psychiatry">Psychiatry</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <div class="label-row">
+              <label for="transcript">Consultation Transcript / Clinician Notes</label>
+              <span class="char-count" id="charCount">0 words</span>
+            </div>
+            <textarea id="transcript" rows="9" placeholder="Enter or paste clinical encounter notes, patient symptoms, vitals (e.g. BP 130/85, HR 78 bpm, Temp 99.1 F), and examination remarks..." required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-generate" id="generateBtn">
+              <span class="btn-sparkle">✦</span> Generate Clinical SOAP Note
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- RIGHT: Generated SOAP Note -->
+      <section class="dash-card output-card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Generated SOAP Documentation</h2>
+            <p class="card-subtitle" id="engineBadge">Engine: Ready for input</p>
+          </div>
+          <div class="output-actions">
+            <button class="btn-tool" id="copyBtn" title="Copy Full Note">📋 Copy Note</button>
+            <button class="btn-tool btn-save" id="saveNoteBtn" disabled>💾 Save to MySQL</button>
+          </div>
+        </div>
+
+        <div class="soap-wrapper" id="soapOutput">
+          <!-- Empty State -->
+          <div class="soap-placeholder" id="soapPlaceholder">
+            <div class="placeholder-icon">📋</div>
+            <h3>No note generated yet</h3>
+            <p>Click "Load Sample Case" and press "Generate Clinical SOAP Note" to watch Pronote AI synthesize structured documentation.</p>
+          </div>
+
+          <!-- Active Note State (Hidden initially) -->
+          <div class="soap-content" id="soapContent" style="display: none;">
+            <!-- S -->
+            <div class="soap-block">
+              <div class="soap-block-header">
+                <span class="soap-letter s-letter">S</span>
+                <h4>Subjective (Chief Complaint &amp; History)</h4>
+              </div>
+              <textarea class="soap-textarea" id="subjectiveText" rows="4"></textarea>
+            </div>
+
+            <!-- O -->
+            <div class="soap-block">
+              <div class="soap-block-header">
+                <span class="soap-letter o-letter">O</span>
+                <h4>Objective (Vitals &amp; Physical Examination)</h4>
+              </div>
+              <textarea class="soap-textarea" id="objectiveText" rows="4"></textarea>
+            </div>
+
+            <!-- A -->
+            <div class="soap-block">
+              <div class="soap-block-header">
+                <span class="soap-letter a-letter">A</span>
+                <h4>Assessment (Clinical Impression &amp; Diagnoses)</h4>
+              </div>
+              <textarea class="soap-textarea" id="assessmentText" rows="3"></textarea>
+            </div>
+
+            <!-- P -->
+            <div class="soap-block">
+              <div class="soap-block-header">
+                <span class="soap-letter p-letter">P</span>
+                <h4>Plan (Prescriptions, Diagnostics &amp; Follow-up)</h4>
+              </div>
+              <textarea class="soap-textarea" id="planText" rows="4"></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ── Saved Notes History (From MySQL) ───────────────────── -->
+    <section class="dash-card history-card">
+      <div class="card-header">
+        <div>
+          <h3 class="card-title">Saved Clinical Notes (MySQL Database)</h3>
+          <p class="card-subtitle">Stored notes for the current clinician.</p>
+        </div>
+        <button class="btn-tool" id="refreshNotesBtn">↻ Refresh Notes</button>
+      </div>
+
+      <div class="history-list" id="notesList">
+        <p class="history-empty" id="historyEmpty">Loading your saved clinical notes from MySQL...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

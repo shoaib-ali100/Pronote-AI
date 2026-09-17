@@ -102,19 +102,28 @@
               <div class="form-error" id="confirmPasswordError">Passwords do not match.</div>
             </div>
 
+            <!-- Server Alert -->
+            <div class="server-error-alert" id="serverErrorAlert" style="display:none; margin-bottom: 1.25rem; padding: 0.75rem 1rem; border-radius: 8px; background: rgba(239,68,68,0.15); border: 1px solid #ef4444; color: #fca5a5; font-size: 0.875rem;"></div>
+
             <!-- Submit -->
             <button type="submit" class="signup-submit" id="submitBtn">
               Create Account <span>→</span>
             </button>
+
+            <!-- Login / Signup toggle -->
+            <p style="text-align: center; margin-top: 1.25rem; font-size: 0.875rem; color: #94a3b8;">
+              <span id="authToggleText">Already have an account?</span>
+              <a href="#" id="authToggleLink" style="color: #00d4aa; text-decoration: none; font-weight: 600; margin-left: 0.25rem;">Sign In</a>
+            </p>
           </form>
         </div>
 
         <!-- Success state (hidden by default) -->
         <div class="signup-success" id="signupSuccess">
           <div class="success-icon">✓</div>
-          <h3>Account created!</h3>
-          <p>Welcome to Pronote. Your 7-day free trial has started.</p>
-          <a href="index.html" class="btn">Go to Dashboard →</a>
+          <h3 id="successHeading">Account created!</h3>
+          <p id="successMessage">Welcome to Pronote. Your 7-day free trial has started.</p>
+          <a href="dashboard.html" class="btn" id="successDashboardBtn">Go to Dashboard →</a>
         </div>
       </div>
 
@@ -175,6 +184,38 @@
 
     </div>
   </main>
+
+  <!-- ── Google Sign-In Dialog Modal ──────────────────────── -->
+  <div id="googleModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); backdrop-filter:blur(8px); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#131a29; border:1px solid rgba(255,255,255,0.12); border-radius:16px; width:90%; max-width:420px; padding:2rem; box-shadow:0 20px 50px rgba(0,0,0,0.7); position:relative; color:#fff;">
+      <button id="closeGoogleModal" type="button" style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:#94a3b8; font-size:1.25rem; cursor:pointer;">✕</button>
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <span style="display:inline-flex; width:44px; height:44px; border-radius:50%; background:#fff; align-items:center; justify-content:center; font-size:1.4rem; font-weight:bold; color:#4285F4; margin-bottom:0.75rem; box-shadow:0 4px 12px rgba(0,0,0,0.3);">G</span>
+        <h3 style="margin:0 0 0.35rem; font-size:1.25rem;">Sign in with Google</h3>
+        <p style="margin:0; font-size:0.85rem; color:#94a3b8;">Choose a Google account to continue to Pronote AI</p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <!-- Quick Account 1 -->
+        <button type="button" class="google-account-btn" data-email="dr.shoaib@gmail.com" data-name="Dr. Shoaib Ali" style="display:flex; align-items:center; gap:0.85rem; padding:0.75rem 1rem; border-radius:10px; background:#1b2438; border:1px solid rgba(255,255,255,0.08); color:#fff; cursor:pointer; text-align:left; transition:all 0.2s;">
+          <div style="width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg, #00d4aa, #3b82f6); color:#0b0f19; font-weight:bold; display:flex; align-items:center; justify-content:center; font-size:0.9rem;">SA</div>
+          <div>
+            <div style="font-weight:600; font-size:0.9rem;">Dr. Shoaib Ali</div>
+            <div style="font-size:0.75rem; color:#94a3b8;">dr.shoaib@gmail.com</div>
+          </div>
+        </button>
+
+        <!-- Custom Account input -->
+        <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:0.85rem; margin-top:0.25rem;">
+          <label for="customGoogleEmail" style="font-size:0.775rem; color:#94a3b8; display:block; margin-bottom:0.4rem;">Or enter your Google email address:</label>
+          <div style="display:flex; gap:0.5rem;">
+            <input type="email" id="customGoogleEmail" placeholder="your.name@gmail.com" style="flex:1; background:#141c2e; border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:0.6rem 0.75rem; color:#fff; font-size:0.85rem; outline:none;">
+            <button type="button" id="submitCustomGoogleBtn" style="background:#00d4aa; color:#0b0f19; font-weight:600; border:none; border-radius:8px; padding:0.6rem 1rem; font-size:0.85rem; cursor:pointer;">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="signup.js"></script>
 </body>
